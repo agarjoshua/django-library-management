@@ -3,7 +3,7 @@
 >
   <div class="justify-between sm:justify-start w-full flex">
     <a class="font-bold text-pink-500 text-xl sm:text-3xl" href="/"
-      >Library Management</a
+      >LBDA Service Management System</a
     >
     <button id="ham" class="w-8 sm:hidden">
       <svg
@@ -27,19 +27,20 @@
     class="w-full pr-2 lg:pr-4 xl:pr-0 lg:w-2/3 justify-end items-end sm:items-center flex flex-col sm:flex-row space-x-4"
   >
     {% if user.is_anonymous %}
-    <li><a class="hover:underline" href="/student/login">Login</a></li>
-    <li><a class="hover:underline" href="/student/signup">Signup</a></li>
+    <li><a class="hover:underline" href="/employee/login">Login</a></li>
+    <li><a class="hover:underline" href="/employee/signup">Signup</a></li>
     <li><a class="hover:underline" href="/admin/">Admin Dashboard</a></li>
     {% elif user.is_superuser %}
-    <!-- <li><a class="hover:underline" href="/addbook/">Add Book</a></li> -->
-    <li><a class="hover:underline" href="/all-issues/"> Issue Requests</a></li>
-    <!-- <li><a class="hover:underline" href="/all-fines/">All Fines</a></li> -->
-    <li><a class="hover:underline" href="/admin/">Admin DashBoard</a></li>
-    <li><a class="hover:underline" href="/student/logout">Logout</a></li>
+    <li><a class="hover:underline" href="/requests/">Manage Requests</a></li>
+    <!-- <li><a class="hover:underline" href="/approverequest/">Approve request</a></li> -->
+    <!-- <li><a class="hover:underline" href="/all-issues/"> Issue Requests</a></li> -->
+    <li><a class="hover:underline" href="/admin/">Super-Admin DashBoard</a></li>
+    <li><a class="hover:underline" href="/employee/logout">Logout</a></li>
     {% else %}
-    <li><a class="hover:underline" href="/my-issues/">My Issues</a></li>
-    <li><a class="hover:underline" href="/my-fines/">My Fines</a></li>
-    <li><a class="hover:underline" href="/student/logout">Logout</a></li>
+    <li><a class="hover:underline" href="/addrequest/">Request Service</a></li>
+    <li><a class="hover:underline" href="/my-issues/">My Service Requests</a></li>
+    <!-- <li><a class="hover:underline" href="/my-fines/">My Fines</a></li> -->
+    <li><a class="hover:underline" href="/employee/logout">Logout</a></li>
     {% endif %}
   </ul>
 </nav>

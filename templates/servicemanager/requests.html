@@ -1,0 +1,83 @@
+{% extends 'base.html' %} {% block heading %} Request Service {% endblock heading %}
+
+{% load static %}  
+
+{% block content %}
+
+<!-- Additional CSS in static file -->
+
+
+<h1>Unapproved requests!</h1>
+
+<table class="table table-striped table-bordered table-sm">
+    <thead class="">
+        <tr>
+            <th>Employee Issuer</th>
+            <th>Service Type</th>
+            <th>Employee Department</th>
+            <th>Issue status</th>
+            <th>Actions</th>
+            <th>Cost</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for issue in issues %}
+        {% if issue.issued is False %}
+        <tr>
+            <td>{{ issue.employee }}</td>
+            <td>{{ issue.type }}</td>
+            <td>{{ issue.Department }}</td>
+            <td>{{ issue.Issued }}</td>
+
+
+            <td>
+                <a href="/edit/{{ issue.id }}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
+                <a href="/approve/{{ issue.id }}"><span class="glyphicon glyphicon-pencil">Approve</span></a>
+                <a href="/deleterequest/{{ issue.id }}">Delete</a>
+            </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+
+<center>
+    <a href="/emp" class="btn btn-primary">Add New Record</a>
+</center>
+
+
+<h1>Approved requests!</h1>
+
+
+<table class="table table-striped table-bordered table-sm">
+    <thead class="">
+        <tr>
+            <th>Employee Issuer</th>
+            <th>Service Type</th>
+            <th>Employee Department</th>
+            <th>Issue status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for issue in issues %}
+        {% if issue.issued is True %}
+        <tr>
+            <td>{{ issue.borrower }}</td>
+            <td>{{ issue.type }}</td>
+            <td>{{ issue.Department }}</td>
+            <td>{{ issue.Issued }}</td>
+            <td>
+                <a href="/edit/{{ issue.id }}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
+                <!-- <a href="/approve/{{ issue.id }}"><span class="glyphicon glyphicon-pencil" >Approve</span></a>     -->
+                <a href="/deleterequest/{{ issue.id }}">Delete</a>
+            </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content%}

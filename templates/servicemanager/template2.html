@@ -1,0 +1,15 @@
+<tbody id="table_movie_id">
+    {% if movies %}
+    {% for movie in movies %}
+    <tr>
+        <td>{{movie.name}}</td>
+        <td>{{movie.genre}}</td>
+        <td>
+            <button value="{{movie.id}}" onclick=deleteMovie(this.value)>
+                delete
+            </button>
+        </td>
+    </tr>
+    {% endfor %}
+    {% endif %}
+</tbody>

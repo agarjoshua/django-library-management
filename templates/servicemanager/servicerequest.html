@@ -1,0 +1,65 @@
+{% extends 'base.html' %} {% block heading %} Request Service {% endblock heading %}
+<!--  -->
+{% block content %}
+
+<form
+  class="w-2xl sm:w-1/2 max-w-lg flex flex-col mx-auto"
+  method="POST"
+  action="/addrequest/"
+  enctype="multipart/form-data"
+>
+  {% csrf_token %}
+  
+
+  <div class="w-full max-w-lg flex flex-col mt-4 justify-center">
+    <label class="text-xl mb-2" for="service">Service Type</label>
+    <select
+      class="rounded border border-red-300 py-2 focus:outline-none focus:ring-2 focus:ring-red-200 focus:border-red-500 text-base pl-3 pr-10 text-gray-800"
+      name="service"
+    >
+      <option value="service">Service Type</option>
+      {%for i in service_type %}
+      <option value="{{i.type}}">{{i.type}}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+
+  <div class="w-full max-w-lg flex flex-col mt-4 justify-center">
+    <label class="text-xl mb-2" for="details">Details of Request</label>
+    <input
+      class="px-2 py-1 bg-transparent border-white border-2 rounded text-white"
+      type="text"
+      placeholder="details"
+      name="details"
+    />
+  </div>
+  
+
+  <div class="w-full max-w-lg flex flex-col mt-4 justify-center">
+    <label class="text-xl mb-2" for="pages">Pages</label>
+    <input
+      class="px-2 py-1 bg-transparent border-white border-2 rounded text-white"
+      type="text"
+      placeholder="pages"
+      name="pages"
+    />
+  </div>
+
+
+  <div class="w-full max-w-lg flex flex-col mt-4 justify-center">
+    <label class="text-xl mb-2" for="document">Documents</label>
+    <input
+      class="px-2 py-1 bg-transparent border-white border-2 rounded text-white"
+      type="file"
+      name="document"
+    />
+  </div>
+  <button
+    class="text-white place-self-center hover:shadow-md text-xl w-full rounded bg-pink-500 px-4 py-1 mt-8"
+    type="submit"
+  >
+    Make Request
+  </button>
+</form>
+{% endblock content%}

@@ -9,6 +9,9 @@
       href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <style>
       button:hover {
         transform: scale(1.1);
@@ -26,7 +29,13 @@
       .error {
         color: rgb(255, 58, 58);
       }
+
     </style>
+
+    {% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" >
+<script src="{% static 'js/main.js' %}"></script> 
+
   </head>
   <body class="min-h-screen bg-gray-900 text-white">
     <!-- Navbar -->

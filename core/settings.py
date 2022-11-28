@@ -42,9 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # LOCAL
-  'student',
-  'library',
-    # 3RD PARTY
+    'user',
+    'servicemanager',
+    # 3RD PARTY DEVELOPMENT APPS(Delete after deployment)
+    # 'clearcache',
 
 ]
 
@@ -135,6 +136,3 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'static')
 ]
-
-RAZORPAY_KEY_ID=os.getenv("RAZORPAY_KEY_ID")
-RAZORPAY_KEY_SECRET=os.getenv("RAZORPAY_KEY_SECRET")
